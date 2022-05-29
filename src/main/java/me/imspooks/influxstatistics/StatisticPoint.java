@@ -12,19 +12,19 @@ import java.util.Map;
 @Data
 public abstract class StatisticPoint {
 
-    private final Map<String, Number> values = new HashMap<>();
+    private final Map<String, Double> values = new HashMap<>();
     private final Map<String, String> tags = new HashMap<>();
 
     public long lastUpload;
     public long delayBetweenUploads;
 
-    public void addValue(String name, Number value) {
-        if (name != null && !name.isEmpty() && value != null) {
-            values.put(name, value);
+    public void addValue(String name, double value) {
+        if (name != null && !name.isEmpty()) {
+            this.values.put(name, this.values.getOrDefault(name, 0.0) + value);
         }
     }
 
-    public Number getValue(String name) {
+    public double getValue(String name) {
         return this.values.get(name);
     }
 
