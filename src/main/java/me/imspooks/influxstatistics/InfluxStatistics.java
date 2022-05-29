@@ -69,7 +69,7 @@ public class InfluxStatistics {
                 builder.time(now, TimeUnit.MILLISECONDS);
                 builder.tag(tags);
 
-                for (Map.Entry<String, Number> entry : statistic.getValues().entrySet()) {
+                for (Map.Entry<String, Double> entry : statistic.getValues().entrySet()) {
                     builder.addField(entry.getKey(), entry.getValue());
                 }
 
