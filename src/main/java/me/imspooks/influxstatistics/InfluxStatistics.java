@@ -59,10 +59,10 @@ public class InfluxStatistics {
                 continue;
             }
 
+            statistic.preUpload();
             if (statistic.getValues().size() > 0) {
                 statistic.setLastUpload(now);
 
-                statistic.preUpload();
                 Map<String, String> tags = new HashMap<>(statistic.getTags());
                 tags.putAll(this.tags);
 
