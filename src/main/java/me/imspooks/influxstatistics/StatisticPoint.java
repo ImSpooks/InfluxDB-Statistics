@@ -24,6 +24,10 @@ public abstract class StatisticPoint {
         }
     }
 
+    public void preUpload() {
+
+    }
+
     public double getValue(String name) {
         return this.values.get(name);
     }
